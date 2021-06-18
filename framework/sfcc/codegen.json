@@ -1,0 +1,28 @@
+{
+  "schema": {
+    "http://localhost:3001/shop-api": {}
+  },
+  "documents": [
+    {
+      "./framework/sfcc/**/*.{ts,tsx}": {
+        "noRequire": true
+      }
+    }
+  ],
+  "generates": {
+    "./framework/sfcc/schema.d.ts": {
+      "plugins": ["typescript", "typescript-operations"],
+      "config": {
+        "scalars": {
+          "ID": "string"
+        }
+      }
+    },
+    "./framework/sfcc/schema.graphql": {
+      "plugins": ["schema-ast"]
+    }
+  },
+  "hooks": {
+    "afterAllFileWrite": ["prettier --write"]
+  }
+}
