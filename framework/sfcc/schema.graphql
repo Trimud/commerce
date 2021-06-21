@@ -2430,7 +2430,7 @@ enum LanguageCode {
   """
   American English
   """
-  en_US
+  en-US
 
   """
   Esperanto

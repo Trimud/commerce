@@ -12,6 +12,7 @@ const PROVIDERS = [
   'saleor',
   'shopify',
   'swell',
+  'sfb2c',
   'vendure',
   'local',
 ]

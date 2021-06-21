@@ -10,7 +10,9 @@ export function formatPrice({
   currencyCode: string
   locale: string
 }) {
-  const formatCurrency = new Intl.NumberFormat(locale, {
+  console.log('Use-Price Locale', { locale })
+  // TODO: YB Change locale here
+  const formatCurrency = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: currencyCode,
   })

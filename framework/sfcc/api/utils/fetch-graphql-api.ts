@@ -26,7 +26,7 @@ const fetchGraphqlApi: GraphQLFetcher = async (
   if (json.errors) {
     throw new FetcherError({
       errors: json.errors ?? [
-        { message: 'Failed to fetch Salesforce Commerce API' },
+        { message: 'Failed to fetch Salesforce B2C Commerce API' },
       ],
       status: res.status,
     })

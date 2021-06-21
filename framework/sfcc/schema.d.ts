@@ -1657,7 +1657,7 @@ export enum LanguageCode {
   /** British English */
   EnGb = 'en_GB',
   /** American English */
-  EnUs = 'en_US',
+  EnUs = 'en-US',
   /** Esperanto */
   Eo = 'eo',
   /** Estonian */
