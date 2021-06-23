@@ -61,12 +61,12 @@ const normalizeProductOption = ({
   }
 }
 
-const normalizeProductImages = (imageGroups: Sfb2cImageGroups[]) => {
-  if (!imageGroups || imageGroups.length < 1) {
+const normalizeProductImages = (image: Sfb2cImage) => {
+  if (!image) {
     return [{ url: '/' }]
   }
 
-  return imageGroups.map((images) => images.images[0])
+  return [{ url: image.disBaseLink }]
 }
 
 const normalizeProductVariants = (
@@ -110,10 +110,7 @@ export function normalizeProduct(sfb2cProduct: any): Product {
   const {
     productId,
     productName,
-    shortDescription,
-    longDescription,
-    pageDescription,
-    imageGroups,
+    image,
     options,
     primaryCategoryId,
     variants,
@@ -131,19 +128,23 @@ export function normalizeProduct(sfb2cProduct: any): Product {
     ? normalizeProductVariants(variants, options)
     : []
 
-  const productImages = normalizeProductImages(imageGroups)
+  const productImage = normalizeProductImages(image)
+
+  console.log({ productImage })
+
   return {
     ...sfb2cProduct,
     description: null, // TODO: YB
-    productId,
+    id: productId,
     vendor: '',
-    path: `/${primaryCategoryId}/${productId}`,
-    images: productImages,
+    path: `/${productId}`,
+    images: productImage,
     variants:
       productVariants && productVariants.length
         ? productVariants
         : emptyVariants,
     options: productOptions,
+    name: productName,
     price: {
       value: value as number,
       currencyCode,
