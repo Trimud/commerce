@@ -24,7 +24,6 @@ export default function getAllProductsOperation({
     config?: Partial<Sfb2cConfig>
     preview?: boolean
   } = {}): Promise<{ products: Product[] | any[] }> {
-    debugger
     const config = commerce.getConfig(cfg)
     const clientConfig = await config.fetch()
 
