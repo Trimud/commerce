@@ -1,4 +1,3 @@
-// import * as CommerceSdk from 'commerce-sdk-isomorphic'
 import { Customer } from '../types/customer'
 import { Product, ProductOption } from '../types/product'
 import { MoneyV2 } from '../schema'

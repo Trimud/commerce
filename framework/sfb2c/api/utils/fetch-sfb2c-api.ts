@@ -1,5 +1,4 @@
-import { sfb2cConfig } from '../..'
-import { Customer, helpers } from 'commerce-sdk'
+import { ClientConfig, Customer, helpers } from 'commerce-sdk'
 import {
   getObjectFromResponse,
   ResponseError,
@@ -7,8 +6,24 @@ import {
   stripBearer,
 } from '@commerce-apps/core'
 
+import {
+  COMMERCE_CLIENT_CLIENT_ID,
+  COMMERCE_CLIENT_ORGANIZATION_ID,
+  COMMERCE_CLIENT_SHORT_CODE,
+  COMMERCE_CLIENT_API_SITE_ID
+} from '../../const'
+
+const clientConfig: ClientConfig = {
+  // proxy: 'https://localhost:4444',
+  parameters: {
+    clientId: COMMERCE_CLIENT_CLIENT_ID,
+    organizationId: COMMERCE_CLIENT_ORGANIZATION_ID,
+    shortCode: COMMERCE_CLIENT_SHORT_CODE,
+    siteId: COMMERCE_CLIENT_API_SITE_ID
+  }
+}
+
 const ShopperCustomers = Customer.ShopperCustomers
-const { clientConfig } = sfb2cConfig
 
 /**
  * Get a refresh token

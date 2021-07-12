@@ -24,11 +24,11 @@ export default function getSiteInfoOperation({
     preview?: boolean
   } = {}): Promise<GetSiteInfoResult> {
     const config = commerce.getConfig(cfg)
-    const categories = await getCategories(config)
+    // const categories = await getCategories(config)
     const brands = await getVendors(config)
 
     return {
-      categories,
+      categories: [{id: 'test', name: 'cat_name', slug: 'slug', path: './'}],
       brands,
     }
   }
