@@ -14,6 +14,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "incremental": true,
     "paths": {
       "@lib/*": ["lib/*"],
       "@utils/*": ["utils/*"],
@@ -22,8 +23,8 @@
       "@components/*": ["components/*"],
       "@commerce": ["framework/commerce"],
       "@commerce/*": ["framework/commerce/*"],
-      "@framework": ["framework/local"],
-      "@framework/*": ["framework/local/*"]
+      "@framework": ["framework/sfb2c"],
+      "@framework/*": ["framework/sfb2c/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"],

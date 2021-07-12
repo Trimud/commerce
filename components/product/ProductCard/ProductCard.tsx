@@ -11,8 +11,13 @@ interface Props {
   className?: string
   product: Product
   noNameTag?: boolean
-  imgProps?: Omit<ImageProps, 'src'>
+  imgProps?: Omit<ImageProps, 'src' | 'layout' | 'placeholder' | 'blurDataURL'>
   variant?: 'default' | 'slim' | 'simple'
+}
+
+// Needed for SFB2C provider
+const disLoader = ({ src }: { src: string }) => {
+  return src
 }
 
 const placeholderImg = '/product-img-placeholder.svg'
@@ -47,6 +52,7 @@ const ProductCard: FC<Props> = ({
             </div>
             {product?.images && (
               <Image
+                loader={disLoader}
                 quality="85"
                 src={product.images[0]?.url || placeholderImg}
                 alt={product.name || 'Product Image'}
@@ -81,9 +87,10 @@ const ProductCard: FC<Props> = ({
             <div className={s.imageContainer}>
               {product?.images && (
                 <Image
+                  loader={disLoader}
                   alt={product.name || 'Product Image'}
                   className={s.productImage}
-                  src={product.images[0].url || placeholderImg}
+                  src={product.images[0]?.url || placeholderImg}
                   height={540}
                   width={540}
                   quality="85"
@@ -111,6 +118,7 @@ const ProductCard: FC<Props> = ({
             <div className={s.imageContainer}>
               {product?.images && (
                 <Image
+                  loader={disLoader}
                   alt={product.name || 'Product Image'}
                   className={s.productImage}
                   src={product.images[0]?.url || placeholderImg}

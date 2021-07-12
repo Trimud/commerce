@@ -1,0 +1,6 @@
+{
+  "provider": "sfb2c",
+  "features": {
+    "wishlist": false
+  }
+}
